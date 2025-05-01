@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>U.S. Airports Map</title>
+    <style>
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK-GwcMps9KZLJla2hgaxdKL-YKBoSD0U"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: { lat: 39.8283, lng: -98.5795 } // Center of U.S.
+        });
+
+        map.data.loadGeoJson('https://raw.githubusercontent.com/nhigh723/Airport-Map-Data/refs/heads/main/airports.csv');       }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>
